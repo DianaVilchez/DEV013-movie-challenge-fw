@@ -1,9 +1,7 @@
 
   /* eslint-env node */
-
-module.exports = {
-    collectCoverage: true,
-    verbose: true,
+  module.exports = {
+    roots: ["<rootDir>/src"],
     testEnvironment: "jsdom",
     transform: {
       "^.+\\.(ts|js|tsx|jsx)$": "@swc/jest",
@@ -15,5 +13,4 @@ module.exports = {
       "^.+\\.module\\.css$": "identity-obj-proxy",
       "^.+\\.(css|png|jpg|jpeg|svg)$": "<rootDir>/src/tests/__mocks__/file-mock.cjs",
     },
-    
   };

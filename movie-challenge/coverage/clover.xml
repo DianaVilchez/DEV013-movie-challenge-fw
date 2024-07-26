@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1721777281032" clover="3.2.0">
-  <project timestamp="1721777281032" name="All files">
+<coverage generated="1721847651427" clover="3.2.0">
+  <project timestamp="1721847651428" name="All files">
     <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1" elements="11" coveredelements="8" complexity="0" loc="8" ncloc="8" packages="1" files="1" classes="1"/>
     <file name="App.tsx" path="C:\Users\Diana\Documents\DEV013-movie-challenge-fw\movie-challenge\src\App.tsx">
       <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>

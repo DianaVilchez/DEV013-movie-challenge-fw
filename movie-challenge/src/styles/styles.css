@@ -1,0 +1,38 @@
+body{
+    width: 100vw;
+}
+img.header-background{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0; 
+}
+.header{
+    z-index: 1000;
+}
+
+.opcions-menu{
+    width: 100%;
+}
+.opcions-menu ul {
+    list-style: none; /* Elimina los puntos de lista predeterminados */
+    padding: 0; /* Elimina el padding predeterminado */
+    margin: 0; /* Elimina el margen predeterminado */
+    display: flex; /* Utiliza Flexbox para alinear los elementos en fila */
+    justify-content: flex-end; /* Centra los elementos horizontalmente */
+}
+
+.opcions-menu li {
+    margin: 0; /* Elimina el margen predeterminado de los ítems de lista */
+    background-color: rgb(255, 0, 247);
+}
+
+.opcions-menu a {
+    display: block; /* Asegura que el enlace ocupe el espacio completo del ítem de lista */
+    padding: 14px 20px; /* Añade padding para espaciar los enlaces */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: #000000; /* Establece el color del texto */
+}
+.opcions-menu a:hover {
+    background-color: #555; /* Cambia el color de fondo en hover */
+}

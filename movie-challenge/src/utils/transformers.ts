@@ -1,12 +1,14 @@
+import { ApiMovie } from '../models/ApiMovie';
 import {Movie} from '../models/Movie'
 
-export function formatMovie(apiData: any) :Movie {
+
+export function formatMovie(apiData: ApiMovie) :Movie {
     return {
         title: apiData.title,
-        posterImg: apiData.posterImg,
-        releaseYear:new Date(apiData.releaseYear).getFullYear(),
-        genre: apiData.genre,
-        director: apiData.director,
-        rating:apiData.rating,
+        posterImg: apiData.poster_path,
+        releaseYear:new Date(apiData.release_date).getFullYear(),
+        // genre: apiData.genre_ids,
+        // director: apiData.director,
+        // rating:apiData.rating,
     };
 }
