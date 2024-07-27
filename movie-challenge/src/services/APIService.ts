@@ -2,20 +2,21 @@ import { ApiMovie } from '../models/ApiMovie';
 // import {Movie} from '../models/Movie'
 import { formatMovie } from '../utils/transformers'
 
-export class APIServices {
+     const apiKey = import.meta.env.VITE_API_KEY! ;
+     const baseUrl =  import.meta.env.VITE_BASE_URL! ;
 
-    private apiKey: string = process.env.REACT_APP_API_KEY! ;
-    private baseUrl: string = process.env.REACT_APP_BASE_URL! ;
-
-    public async getMovies(): Promise<ApiMovie[]> {
-        const response = await fetch(`${this.baseUrl}/discover/movie}`,{
+    // async function  getMovies(): Promise<ApiMovie[]> {
+    export const getMovies = async() :Promise<ApiMovie[]> => {
+        const response = await fetch(`${baseUrl}/discover/movie?api_key=${apiKey}`,{
             headers:{
-                'Authorization': `Bearer ${this.apiKey}`,
+                'Authorization': `Bearer ${apiKey}`,
                 'Content-Type': 'application/json'
             }
         });
         const data = await response.json();
+        console.log(data)
         const movies = data.results.map((movie: ApiMovie) => formatMovie(movie));
         return movies;
     }
-}
+
+// export default getMovies()
