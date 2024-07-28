@@ -6,8 +6,8 @@ import { formatMovie } from '../utils/transformers'
      const baseUrl =  import.meta.env.VITE_BASE_URL! ;
 
     // async function  getMovies(): Promise<ApiMovie[]> {
-    export const getMovies = async() :Promise<ApiMovie[]> => {
-        const response = await fetch(`${baseUrl}/discover/movie?api_key=${apiKey}`,{
+    export const getMovies = async({ filters: { page: number } }) :Promise<ApiMovie[]> => {
+        const response = await fetch(`${baseUrl}/discover/movie?api_key=${apiKey}?page=`,{
             headers:{
                 'Authorization': `Bearer ${apiKey}`,
                 'Content-Type': 'application/json'
