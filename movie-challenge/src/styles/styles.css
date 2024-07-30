@@ -87,3 +87,11 @@ body,html{
   margin: 0 auto;
   /* background-color: aqua; */
 }
+/*PAGINAVION*/
+.pagination-list{
+    color:white;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: row;
+    /* padding:10px; */
+}

@@ -4,7 +4,7 @@ import { ApiMovie } from '../models/ApiMovie';
 
 export function formatMovie(apiData: ApiMovie) :ApiMovie {
     return {
-        original_title: apiData.original_title,
+        title: apiData.title,
         poster_path: apiData.poster_path,
         release_date:new Date(apiData.release_date).getFullYear(),
         // genre: apiData.genre_ids,
