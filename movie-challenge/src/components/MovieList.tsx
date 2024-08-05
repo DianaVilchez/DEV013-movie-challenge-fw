@@ -1,24 +1,25 @@
-import React from 'react';
-import {ApiMovie} from '../models/ApiMovie';
-import MovieCard from './MovieCard';
+import React from "react";
+import { ApiMovie } from "../models/ApiMovie";
+import MovieCard from "./MovieCard";
 
 interface MovieListType {
-    movies:ApiMovie[]
+  movies: ApiMovie[];
 }
 const MovieList: React.FC<MovieListType> = ({ movies }) => {
-    return (
-        <div className="movies-list">
-            {movies.map((movie) => (
-        <li key={movie.title} > {/* Usa una propiedad única como id para la clave */}
-          <MovieCard 
+  return (
+    <div className="movies-list">
+      {movies.map((movie) => (
+        <li key={movie.title}>
+          {/* Usa una propiedad única como id para la clave */}
+          <MovieCard
             title={movie.title}
             poster_path={movie.poster_path}
-            release_date={movie.release_date} 
+            release_date={movie.release_date}
           />
         </li>
       ))}
-        </div>
-    );
+    </div>
+  );
 };
 
 export default MovieList;

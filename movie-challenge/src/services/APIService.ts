@@ -9,7 +9,7 @@ import { formatMovie } from '../utils/transformers'
     // const [totalPages, setTotalPages] = useState<number>(1); 
 
     // async function  getMovies(): Promise<ApiMovie[]> {
-    export const getMovies = async({ filters: { page = 1 } }: { filters: { page?: number } }) :Promise<{ metaData: { pagination: { currentPage: number; totalPages: number } }, movies: ApiMovie[] }>  => {
+    export const getMovies = async({ filters: { page = 1 } }: { filters: { page?: number } }, genreMap:Map<number, string>) :Promise<{ metaData: { pagination: { currentPage: number; totalPages: number } }, movies: ApiMovie[] }>  => {
         // const page = parseInt(page as string, 10) || 1; // Página actual
         // const limit = parseInt(limitQuery as string, 10) || 10; // Tamaño de página
         //with_generes:filtrado para obtener peliculas a nimadas (id-16=animation)
@@ -29,7 +29,7 @@ import { formatMovie } from '../utils/transformers'
         const data = await response.json();
         console.log("data:",data)
         console.log("total_page",data.total_pages)
-        const movies = data.results.map((movie: ApiMovie) => formatMovie(movie));
+        const movies = data.results.map((movie: ApiMovie) => formatMovie(movie, genreMap));
         return {
             metaData: { 
                 pagination:{

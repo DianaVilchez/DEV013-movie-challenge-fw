@@ -1,6 +1,6 @@
 import { ApiMovie } from '../models/ApiMovie'
 // import {Movie} from '../models/Movie'
-function MovieCard({title,poster_path,release_date}:ApiMovie){
+function MovieCard({title,poster_path,release_date,genres}:ApiMovie){
     return(
         <section className='movie-card'>
             
@@ -8,6 +8,7 @@ function MovieCard({title,poster_path,release_date}:ApiMovie){
             <p>
             <h3>{title} </h3>
             <h4>{release_date} </h4>
+            <h4>{genres}</h4>
             </p>
         </section>
     )

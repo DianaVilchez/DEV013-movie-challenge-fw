@@ -88,10 +88,36 @@ body,html{
   /* background-color: aqua; */
 }
 /*PAGINAVION*/
-.pagination-list{
+.pagination{
     color:white;
     /* background-color: blue; */
     display: flex;
     flex-direction: row;
+    
+    justify-content: center;
     /* padding:10px; */
 }
+.pagination-list{
+    display: flex;
+    list-style: none;
+}
+.pagination a{
+  text-decoration: none;
+  background-color: #FFF234;
+  color: rgb(0, 0, 0);
+  padding: 8px;
+  margin: 0 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.pagination a:hover{
+    font-weight: bold;
+    background-color: rgb(200, 203, 203); 
+}
+.pagination a.is-current{
+    font-weight: bold;
+  background-color: rgb(200, 203, 203);
+}
+ 
+  
+ 
