@@ -1,0 +1,54 @@
+/* MultiSelectDropdown.module.css */
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdownTitle {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #E3EE9E;
+    color:rgb(0, 0, 0);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px; /* Puedes ajustar el ancho según sea necesario */
+  }
+  
+  .dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #FAFFD7;
+    min-width: 200px; /* Ajusta según sea necesario */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .dropdownContent.show {
+    display: block;
+    background-color: #FAFFD7;
+  }
+  
+  .optionList {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 300px; /* Ajusta según sea necesario */
+    overflow-y: auto;
+    /* color: black;
+    background-color: #FAFFD7; */
+  }
+  
+  .option {
+    flex: 1 0 45%; /* Esto asegura que haya dos columnas */
+    padding: 8px;
+    cursor: pointer;
+    box-sizing: border-box;
+    /* color:black;
+    background-color: #FAFFD7; */
+  }
+  
+  .option:hover {
+    background-color: #f0f0f0;
+  }

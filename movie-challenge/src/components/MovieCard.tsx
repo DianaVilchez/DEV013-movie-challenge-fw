@@ -1,6 +1,6 @@
 import { ApiMovie } from '../models/ApiMovie'
 // import {Movie} from '../models/Movie'
-function MovieCard({title,poster_path,release_date,genres}:ApiMovie){
+export function MovieCard({title,poster_path,release_date,genres}:ApiMovie){
     return(
         <section className='movie-card'>
             
