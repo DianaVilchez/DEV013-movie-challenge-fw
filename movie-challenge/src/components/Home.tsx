@@ -86,6 +86,7 @@ function Home() {
   const handleGenreSelection = (selected: Option[]) => {
     const genreIds = selected.map((option) => option.value);
     setSelectedGenres(genreIds);
+    
   };
   useEffect(() => {
     setCurrentPage(1);
