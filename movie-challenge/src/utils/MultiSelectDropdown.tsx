@@ -57,7 +57,7 @@ if (!selectedOptions.some((selected) => selected.value === option.value)) {
               backgroundColor: selectedOptions.some(
                 (selected) => selected.value === option.value
               )
-                ? "#d0eaff" // Color para indicar selección
+                ? "#EB93D2" // Color para indicar selección
                 : "transparent",
             }}
           >

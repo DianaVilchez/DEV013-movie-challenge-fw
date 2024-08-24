@@ -71,7 +71,7 @@ html, body {
 
 .opcions-menu li {
     margin: 0; 
-    background-color: #FAFFD7;
+    background-color: #000000;
 }
 
 .opcions-menu a {
@@ -79,20 +79,23 @@ html, body {
     padding: 2vh 5vw; /* Añade padding para espaciar los enlaces */
     text-decoration: none; /* Elimina el subrayado de los enlaces */
     color: #ffffff; /* Establece el color del texto */
-    font-family: "Mansalva", sans-serif;
+    font-family: "Mansalva";
     font-weight: 400;
 }
 
 .opcions-menu a:hover {
-    background-color: #D9D9D9; /* Cambia el color de fondo en hover */
+    background-color: #8a8585; /* Cambia el color de fondo en hover */
 }
 
 /*TARJETAS*/
 .movie-card{
+    font-family: 'Josefin Sans';
     background-color:#E3EE9E;
     width:fit-content;
     width: 200px;
+    height: 410px;
     border-radius: 40px 40px 40px 0;
+    padding-bottom: 6% ;
 }
 .movie-card img{
     width: 200px;
@@ -102,8 +105,36 @@ html, body {
     padding: 0 5% 0 5%;
     margin:0;
 }
-.movie-card h3,h4{
+.titleMovie{
+    margin:0;
+    padding:4% 0 4% 0;
+    font-size: 23px;
+    margin-bottom: 2%;
+    
+    display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 2.25em; /* Asegúrate de que el contenedor tenga la altura adecuada */
+  line-height: 1em; 
+
+}
+.movie-card h3{
+    box-sizing: border-box;
+     /* width:90%; */
+     padding-right: 10px;
      margin:0;
+     font-weight: 450;
+     display: -webkit-box;
+     -webkit-line-clamp: 1;
+     line-clamp: 1; 
+     -webkit-box-orient: vertical;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     height: 1em; /* Asegúrate de que el contenedor tenga la altura adecuada */
+     line-height: 1em; 
 }
 /*MOVIE LIST*/
 .movies-list{
@@ -112,7 +143,7 @@ html, body {
   gap: 4vw; /*Espacio entre las tarjetas*/
   width:fit-content;
   list-style: none;
-  padding:4%;
+  padding:4% 4% 2% 4%;
   margin: 0 auto;
   /* background-color: aqua; */
 }
@@ -124,20 +155,28 @@ html, body {
     flex-direction: row;
     
     justify-content: center;
+    align-items: center;
+    
     /* padding:10px; */
 }
 .pagination-list{
     display: flex;
     list-style: none;
+    font-size: 18px;
+    font-family: 'Josefin Sans';
+    margin:4% 0 4% 0;
 }
 .pagination a{
   text-decoration: none;
   background-color: #FFF234;
   color: rgb(0, 0, 0);
-  padding: 8px;
+  padding: 12px;
   margin: 0 4px;
   cursor: pointer;
   transition: all 0.3s ease;
+  border-radius: 10px;
+  height: fit-content;
+ 
 }
 .pagination a:hover{
     font-weight: bold;

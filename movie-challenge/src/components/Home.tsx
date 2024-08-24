@@ -64,6 +64,8 @@ function Home() {
   const handlePageChange = (page: number) => {
     console.log("actual", page);
     setCurrentPage(page);
+    // para que el scroll comience en 0 
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   //  const handleChange = (option: { value: string; label: string }) => {
@@ -86,7 +88,7 @@ function Home() {
   const handleGenreSelection = (selected: Option[]) => {
     const genreIds = selected.map((option) => option.value);
     setSelectedGenres(genreIds);
-    
+
   };
   useEffect(() => {
     setCurrentPage(1);
