@@ -7,6 +7,9 @@ import Header from "./Header";
 import { getMovieGenres } from "../services/movieService";
 import Footer from "./Footer";
 
+import { yearFilter } from "../services/yearFilter";
+import { yearOptions } from "./Ages";
+
 type Option = { value: string; label: string };
 
 function Home() {
@@ -16,19 +19,22 @@ function Home() {
   const [totalPages, setTotalPages] = useState<number>(1);
   // const [genreIds, setGenreId] = useState<number | null>(null);
   const [sortBy, setSortBy] = useState<string | null>(null);
+
   // const [selectedOption,setSelectedOption] = useState<{ value: string; label: string } | null>(null);
   // const [allGenres, setAllGenres] = useState<{ value: string; label: string }[]>([]);
   // const [selectedOptions, setSelectedOptions] = useState<Option[]>([]);
   const [options, setOptions] = useState<Option[]>([]);
 
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
+  const [selectedYear, setSelectedYear] = useState<Option[]>([]);
+  const [year, setYear] = useState<string | null>(null);
 
   // const allGenres = getMovieGenres()
   useEffect(() => {
     const fetchData = async () => {
       try {
         const result = await getMovies({
-          filters: { page: currentPage, genreIds:selectedGenres, sortBy },
+          filters: { page: currentPage, genreIds:selectedGenres, sortBy, year},
         });
         setData(result.movies);
         setTotalPages(Math.min(result.metaData.pagination.totalPages, 500));
@@ -39,7 +45,7 @@ function Home() {
       }
     };
     fetchData();
-  }, [currentPage, selectedGenres, sortBy]); // Ejecutar useEffect solo una vez al montar el componente
+  }, [currentPage, selectedGenres, sortBy, year]); // Ejecutar useEffect solo una vez al montar el componente
 
   //FILTRO DE GENEROS
   useEffect(() => {
@@ -89,28 +95,64 @@ function Home() {
   const handleGenreSelection = (selected: Option[]) => {
     const genreIds = selected.map((option) => option.value);
     setSelectedGenres([...genreIds,'16']);
-
   };
+  //FILTRO POR AÑOS
+  
+  const handleYearChange = (selected: Option[]) => {
+    setSelectedYear(selected);
+    const selectedYears = selected.map(option => option.value);
+  setYear(selectedYears.join(","));
+    
+  }
+  const handleYearClear = () => {
+    setSelectedYear([]);
+    setCurrentPage(1);
+  };
+  useEffect(() => {
+    const ageRange = selectedYear[0]?.value || null;
+    setYear(ageRange);
+  }, [selectedYear]);
+
   useEffect(() => {
     setCurrentPage(1);
     const queryParams = new URLSearchParams();
-    console.log(queryParams);
+    console.log("queryParamsYear",queryParams);
     if (selectedGenres.length > 0) {
       queryParams.append("genres", selectedGenres.join(","));
+    }
+    // if (year) {
+    //   queryParams.append("year", year);
+    //   console.log("yearsselected",queryParams.append("year", year))
+    // }
+    if (year) {
+      if (year && year.length > 0) {
+        const yearRanges = year.split(","); // Convierte el string en un array
+        yearRanges.forEach((range: string, index: number) => {
+          const { startYear, endYear } = yearFilter(range);
+          if (startYear && endYear) {
+            queryParams.append(`release_date.gte${index}`, startYear);
+            queryParams.append(`release_date.lte${index}`, endYear);
+          }
+        });
+      }
     }
     console.log(selectedGenres.join(","))
     const queryString = queryParams.toString();
     window.history.replaceState(null, '', `?${queryString}`); // Actualiza la URL sin recargar la página
-  }, [selectedGenres]);
+  }, [selectedGenres, year]);
 
   return (
     <div>
       <Header
         options={options}
-        // selectedOptions={selectedOptions}
         selectedOptions={selectedGenres.map(id => options.find(option => option.value === id)!).filter(Boolean)}
         onDropdownChange={handleGenreSelection}
         onDropdownClear={handleClear}
+       // AGE
+        YearOptions={yearOptions}
+        selectedYear={selectedYear}
+        onYearChange={handleYearChange}
+        onYearClear={handleYearClear}
       />
       <MovieList movies={data} />
       <Pagination
@@ -124,3 +166,4 @@ function Home() {
 }
 
 export default Home;
+

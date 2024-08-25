@@ -2,14 +2,23 @@
 import  {MultiSelectDropdown}  from "../utils/MultiSelectDropdown";
 import { FC } from 'react';
 import { Option } from '../utils/MultiSelectDropdown';
+import { MultiSelectDropdownYear } from "../utils/opciosyear";
 
 interface HeaderProps {
   options: Option[];
   selectedOptions: Option[];
   onDropdownChange: (selected: Option[]) => void;
   onDropdownClear: () => void;
+//AGES
+  YearOptions: Option[];
+  selectedYear: Option[];
+  onYearChange: (selected: Option[]) => void;
+  onYearClear: () => void;
 }
-const Header: FC<HeaderProps> = ({ options, selectedOptions, onDropdownChange, onDropdownClear }) => {
+const Header: FC<HeaderProps> = ({ options, selectedOptions, onDropdownChange, onDropdownClear ,YearOptions,
+  selectedYear,
+  onYearChange,
+  onYearClear}) => {
     return (
     <>
     <section className="header">
@@ -27,9 +36,18 @@ const Header: FC<HeaderProps> = ({ options, selectedOptions, onDropdownChange, o
               title="Géneros"
             />
             </li>
-            <li><a href="#clasification">Clasificación</a></li>
-            <li><a href="#studie">Estudio</a></li>
-            <li><a href="#Age">Año</a></li>
+            <li>
+                {/* <a href="#genres">Géneros</a> */}
+                <MultiSelectDropdownYear
+              options={YearOptions}
+              selectedOptions={selectedYear}
+              onChange={onYearChange}
+              onClear={onYearClear}
+              title="Year"
+            />
+            </li>
+            {/* <li><a href="#clasification">Clasificación</a></li> */}
+            <li><a href="#studie">Valoración</a></li>
         </ul>
     </nav>    
     </section>
