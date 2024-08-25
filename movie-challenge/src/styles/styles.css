@@ -53,6 +53,11 @@ html, body {
     top: 0;
     left: 0; 
 }
+.logo-Header{
+    width: 14vw;
+    position: absolute;
+    margin-left: 6%;
+}
 .opcions-menu{
     width: 100%;
     display: flex;
@@ -186,6 +191,12 @@ html, body {
     font-weight: bold;
   background-color: rgb(200, 203, 203);
 }
- 
+.name-Developer{
+    color: #ffffff;
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Homemade Apple';
+    margin-right: 3%;
+}
   
  

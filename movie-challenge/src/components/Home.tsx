@@ -5,6 +5,7 @@ import MovieList from "./MovieList";
 import Pagination from "./Pagination";
 import Header from "./Header";
 import { getMovieGenres } from "../services/movieService";
+import Footer from "./Footer";
 
 type Option = { value: string; label: string };
 
@@ -30,7 +31,7 @@ function Home() {
           filters: { page: currentPage, genreIds:selectedGenres, sortBy },
         });
         setData(result.movies);
-        setTotalPages(Math.min(result.metaData.pagination.totalPages, 30));
+        setTotalPages(Math.min(result.metaData.pagination.totalPages, 500));
         // setTotalPages(result.metaData.pagination.totalPages);
         console.log("Total Pages:", result.metaData.pagination.totalPages);
       } catch (error) {
@@ -87,7 +88,7 @@ function Home() {
   //SELECCION MULTIPLE
   const handleGenreSelection = (selected: Option[]) => {
     const genreIds = selected.map((option) => option.value);
-    setSelectedGenres(genreIds);
+    setSelectedGenres([...genreIds,'16']);
 
   };
   useEffect(() => {
@@ -117,6 +118,7 @@ function Home() {
         totalPages={totalPages}
         onSelectPage={handlePageChange}
       />
+      <Footer/>
     </div>
   );
 }

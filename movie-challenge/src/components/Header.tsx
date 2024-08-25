@@ -14,6 +14,7 @@ const Header: FC<HeaderProps> = ({ options, selectedOptions, onDropdownChange, o
     <>
     <section className="header">
         <img className="header-background" src="https://i.ibb.co/4FzhJdF/Header.png" />
+        <img className='logo-Header' src="https://i.ibb.co/dftc719/Group-1-2.png" />
         <nav className="opcions-menu">
         <ul>
             <li>
