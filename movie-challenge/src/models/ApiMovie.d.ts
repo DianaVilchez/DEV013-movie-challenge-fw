@@ -3,7 +3,7 @@ export type ApiMovie =
     "adult"?: boolean,
     "backdrop_path"?: string,
     "genre_ids": number[],
-    "id"?: number,
+    "id": number,
     "original_language"?: string,
     "original_title"?: string,
     "overview"?: string,

@@ -16,7 +16,7 @@ interface MultiSelectDropdownProps {
   title: string;
 }
 
-export const MultiSelectDropdownYear: React.FC<MultiSelectDropdownProps> = ({
+export const MultiSelectDropdownOptions: React.FC<MultiSelectDropdownProps> = ({
   options,
   selectedOptions,
   onChange,

@@ -2,7 +2,7 @@
 import { ApiMovie } from "../models/ApiMovie";
 import { formatGenresToMap, formatMovie } from "../utils/transformers";
 import { yearFilter } from "./yearFilter";
-import { getMovieGenres } from "./movieService";
+import { getMovieGenres } from "./movieGenresService";
 
 const apiKey = import.meta.env.VITE_API_KEY!;
 const baseUrl = import.meta.env.VITE_BASE_URL!;
@@ -46,7 +46,15 @@ export const getMovies = async ({
     queryParams.set("release_date.lte", allAges.endYear);
     console.log("ages",queryParams.set("release_date.gte", allAges.startYear))
   }
- 
+  //revisar mañana................................
+  if(sortBy){
+    const sortByMap: { [key: string]: string } = {
+      "Mas valoradas": "vote_average.desc",
+      "Menos Valoradas": "vote_average.asc",
+    };
+    queryParams.append("sort_by", sortByMap[sortBy]);
+  }
+ //...................................................
   // Imprime la URL final para depurar
   console.log(
     "Constructed URL:",
@@ -72,7 +80,7 @@ export const getMovies = async ({
   console.log("API Response Data:", data);
 
   const movies = data.results.map((movie: ApiMovie) =>
-    formatMovie(movie, genreMap, sortBy || "")
+    formatMovie(movie, genreMap)
   );
 
   const returnMovies = {

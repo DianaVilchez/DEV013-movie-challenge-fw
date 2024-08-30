@@ -75,8 +75,9 @@ const displayedPages = generatePageNumbers();
         <FaArrowLeft size={15} /> {/* Icono de flecha izquierda */}
       </a>
       <ul className="pagination-list">
-        {displayedPages.map((noPage) => (
-          <li key={noPage}>
+        {displayedPages.map((noPage,index) => (
+          // <li key={noPage}>
+          <li key={typeof noPage === "number" ? noPage : `ellipsis-${index}`}>
             {typeof noPage === "number" ? (
             <a
               className={`${noPage === currentPage ? "is-current" : ""}`}
