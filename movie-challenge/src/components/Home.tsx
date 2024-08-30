@@ -71,19 +71,19 @@ function Home() {
   const handlePageChange = (page: number) => {
     console.log("actual", page);
     // const queryParams = new URLSearchParams();
-    //   if (currentPage > 1) {
-    //     queryParams.append("page", currentPage.toString());
+    //   if (page > 1) {
+    //     queryParams.append("page",page.toString());
     //     console.log(queryParams)
+    //     window.history.replaceState(null, "", `?${queryParams.toString()}`);
     //   }
       
     setCurrentPage(page);
     // para que el scroll comience en 0
     window.scrollTo({ top: 0, behavior: "smooth" });
+    const queryParams = new URLSearchParams(window.location.search);
+    queryParams.set("page", page.toString());
+    window.history.replaceState(null, "", `?${queryParams.toString()}`);
   };
-
-  //  const handleChange = (option: { value: string; label: string }) => {
-  //   setSelectedOption(option);
-  // };
 
   const handleClear = () => {
     setSelectedGenres([]);
@@ -139,21 +139,15 @@ function Home() {
     if (sortBy) {
       queryParams.set("sortBy", sortBy);
     } 
-    if (currentPage > 1) {
-        queryParams.append("page", currentPage.toString());
-      }
+    // if (currentPage > 1) {
+    //     queryParams.append("page", currentPage.toString());
+    //   }
     console.log(selectedGenres.join(","));
     const queryString = queryParams.toString();
     window.history.replaceState(null, "", `?${queryString}`); // Actualiza la URL sin recargar la página
-  }, [selectedGenres, year,sortBy,currentPage]);
+  }, [selectedGenres, year,sortBy]);
 
 //SORTBY
-// const handleSortChange = (newSort: string) => {
-//   setSortBy(newSort);
-//   const queryParams = new URLSearchParams(location.search);
-//   queryParams.set('sort', newSort);
-//   navigate({ search: queryParams.toString() });
-// };
 const handleVoteClear = () => {
   setSortBy(null);
   setCurrentPage(1);
