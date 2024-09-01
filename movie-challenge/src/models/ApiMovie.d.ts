@@ -9,7 +9,7 @@ export type ApiMovie =
     "overview"?: string,
     "popularity"?: number,
     "poster_path": string,
-    "release_date": number,
+    "release_date": string,
     "title": string,
     "video"?: boolean,
     "vote_average"?: number,

@@ -199,5 +199,17 @@ html, body {
     font-family: 'Homemade Apple';
     margin-right: 3%;
 }
-  
- 
+.no-image{
+    background-color: #ffffff;
+    width: 200;
+    height:75%;
+}
+.titlenoimg{
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 70%;
+    border-radius: 40px 40px 0 0;
+    position: relative;
+}

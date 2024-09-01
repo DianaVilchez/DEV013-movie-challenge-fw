@@ -4,22 +4,17 @@ import {GenreOption} from '../models/GenresOptions';
 
 export function formatMovie(apiData: ApiMovie,genreMap:Map<number, string>) :ApiMovie {
     const genresNames = apiData.genre_ids.map(id => genreMap.get(id) || 'Unknown') ;
-    console.log("genresNames",genresNames )
+    
     return {
         title: apiData.title,
         poster_path: apiData.poster_path,
-        release_date:new Date(apiData.release_date).getFullYear(),
+        release_date:new Date(apiData.release_date).getFullYear().toString(),
         genres: genresNames,
         genre_ids:apiData.genre_ids,
         id: apiData.id,
         overview: apiData.overview,
         vote_average: apiData.vote_average || 0,
         vote_count: apiData.vote_count || 0,
-        
-
-        // genre: apiData.genre_ids,
-        // director: apiData.director,
-        // rating:apiData.rating,
     };
 }
 
@@ -42,6 +37,3 @@ export function formatGenresToOptions(genres: GenreMovies[]): GenreOption[] {
     return example
     
 }
-// export function getGenresWithNames(genreIds: number[], genreMap: Map<number, string>): string[] {
-//     return genreIds.map(id => genreMap.get(id) || 'Unknown');
-// }

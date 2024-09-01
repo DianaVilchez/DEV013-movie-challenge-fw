@@ -63,3 +63,11 @@
 .star-rating-container {
     padding: 1% 6%;
 }
+.loading{
+    font-family: 'Indie Flower';
+    color:white;
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
