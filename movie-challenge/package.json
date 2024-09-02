@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "yarn lint && jest"
+    "test": "yarn lint && jest --verbose --coverage"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
@@ -29,7 +29,7 @@
     "@swc/core": "^1.7.0",
     "@swc/jest": "^0.2.36",
     "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.12",
