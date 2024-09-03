@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/MovieCard.tsx</title>
+    <title>Code coverage report for components/MovieList.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> MovieCard.tsx</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> MovieList.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/8</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -89,23 +89,17 @@
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">19x</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -120,46 +114,34 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span></td><td class="text"><pre class="prettyprint lang-js">import { ApiMovie } from '../models/ApiMovie'
-// import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom'
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
+import { ApiMovie } from "../models/ApiMovie";
+import MovieCard from "./MovieCard";
+interface MovieListType {
+  movies: ApiMovie[];
+}
+const MovieList: React.FC&lt;MovieListType&gt; = ({ movies }) =&gt; {
+  return (
+    &lt;div className="movies-list"&gt;
+      {movies.map((movie) =&gt; (
+        &lt;li key={movie.title}&gt;
+          &lt;MovieCard
+            id={movie.id}
+            title={movie.title}
+            poster_path={movie.poster_path}
+            release_date={movie.release_date}
+            genres={movie.genres}
+            genre_ids={movie.genre_ids}
+          /&gt;
+        &lt;/li&gt;
+      ))}
+    &lt;/div&gt;
+  );
+};
 &nbsp;
-const MovieCard = ({ id, title, poster_path, release_date, genres }: ApiMovie) =&gt; {
-  const navigate = useNavigate()  
-  const handleClick = () =&gt; {
-    navigate(`/movie/${id}`);
-  };
-  const filteredGenres = genres.filter(genre =&gt; genre !== 'Animation');
-    const imageUrl = poster_path
-    ? `https://media.themoviedb.org/t/p/w300_and_h450_bestv2${poster_path}`
-    : null
-        ;
-    return (
-      &lt;section className='movie-card'
-         onClick ={handleClick} style={{ textDecoration: 'none', color: 'inherit' }}&gt;
-          {imageUrl ? (
-            &lt;img src={imageUrl} alt={title} /&gt;
-          ) : (
-            &lt;div className='no-image'&gt;
-            &lt;span className='titlenoimg'&gt;{title}&lt;/span&gt;
-            &lt;/div&gt;
-          )
-          }
-            &lt;h2 className="titleMovie"&gt;{title}&lt;/h2&gt;
-            &lt;h3&gt;{release_date || <span class="branch-1 cbranch-no" title="branch not covered" >'Sin Fecha'}&lt;/h3&gt;</span>
-            &lt;h3&gt;{filteredGenres.join(', ')}&lt;/h3&gt;
-        
-      &lt;/section&gt;
-    );
-  };
-  export default MovieCard;</pre></td></tr></table></pre>
+export default MovieList;
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
