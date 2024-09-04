@@ -1,4 +1,4 @@
-import styles from "./MultiSelectDropdown.module.css";
+import styles from "../styles/MultiSelectDropdown.module.css";
 import { useState } from "react";
 
 // Define el tipo para las opciones

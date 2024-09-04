@@ -1,4 +1,4 @@
-import { Option } from "../utils/MultiSelectDropdown";
+import { Option } from "./ListOptions";
 
 export const yearOptions: Option[] = [
   { value: "1970s", label: "1970s" },  

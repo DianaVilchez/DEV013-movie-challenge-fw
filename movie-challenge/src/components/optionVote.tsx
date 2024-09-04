@@ -1,4 +1,4 @@
-import { Option } from "../utils/MultiSelectDropdown";
+import { Option } from "./ListOptions";
 
 export const voteOptions: Option[] = [
   { value: "Mas valoradas", label: "Mas valoradas" },  

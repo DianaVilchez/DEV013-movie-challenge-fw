@@ -4,8 +4,7 @@ import { useEffect, useState } from "react";
 import { ApiMovie } from "../models/ApiMovie";
 import { FaArrowLeft } from "react-icons/fa";
 import StarRatings from "react-star-ratings-component";
-// import { getMovies } from '../services/APIService';
-// import Home from './Home';
+
 type Params = {
   id: string;
 };
@@ -16,7 +15,7 @@ export const MovieDetails = () => {
   const [movie, setMovie] = useState<ApiMovie | null>(null);
   const [loading, setLoading] = useState<boolean>(true); // Inicializamos el estado `loading` como `true`
   const [error, setError] = useState<string | null>(null);
-  //Manejar el caso por defecto de useParams se undefined
+
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
@@ -39,34 +38,21 @@ export const MovieDetails = () => {
   }, [id]);
   console.log(movie);
   console.log("setMovie", setMovie);
-  
-  if(error){
-    return <div>
-      Error
-    </div>
+
+  if (error) {
+    return <div>Error</div>;
   }
-  if(loading){
-    console.log("cargando")
-    return <div className="loading">Cargando ...</div>
+  if (loading) {
+    console.log("cargando");
+    return <div className="loading">Cargando ...</div>;
   }
   if (!movie) {
     return <div>No movie found</div>;
   }
   const handleBackClick = () => {
-    navigate("/"); // Redirige a la ruta '/'
+    navigate("/");
   };
-  // const vote = parseInt(movie.vote_average,10)
   const voteAverage = movie.vote_average ?? 0;
-  // const starRating = voteAverage / 2;
-  // console.log(starRating)
-
-  // console.log("vote", typeof movie.vote_average);
-
-  // console.log("vote", movie.vote_average);
-  // console.log("genres", movie.genres);
-  // console.log("movie.overview", movie.overview);
-  // const genreNames = movie.genres.map(genre => genre.name);
-  // const genreNames = movie.genres.map(genre => genre.name);
   return (
     <section className="movie">
       <h1 className="details-Back" onClick={handleBackClick}>

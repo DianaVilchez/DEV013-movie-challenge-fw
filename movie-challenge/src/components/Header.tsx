@@ -1,6 +1,6 @@
-import { MultiSelectDropdown } from "../utils/MultiSelectDropdown";
+import { MultiSelectDropdown } from "./ListOptions";
 import { FC } from "react";
-import { Option } from "../utils/MultiSelectDropdown";
+import { Option } from "./ListOptions";
 import { MultiSelectDropdownOptions } from "../utils/opciosyear";
 // import { MultiSelectDropdownYear } from "../utils/opciosyear";
 

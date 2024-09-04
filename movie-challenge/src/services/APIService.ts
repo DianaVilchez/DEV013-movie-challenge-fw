@@ -3,9 +3,10 @@ import { ApiMovie } from "../models/ApiMovie";
 import { formatGenresToMap, formatMovie } from "../utils/transformers";
 import { yearFilter } from "./yearFilter";
 import { getMovieGenres } from "./movieGenresService";
+const token = import.meta.env.VITE_TOKEN_API!;
+// const apiKey = import.meta.env.VITE_API_KEY!;
+// const baseUrl = import.meta.env.VITE_BASE_URL!;
 
-const apiKey = import.meta.env.VITE_API_KEY!;
-const baseUrl = import.meta.env.VITE_BASE_URL!;
 
 export const getMovies = async ({
   filters: { page = 1, genreIds = [], sortBy ,year},
@@ -26,7 +27,6 @@ export const getMovies = async ({
 
   // Construcción de los parámetros de consulta
   const queryParams = new URLSearchParams({
-    api_key: apiKey,
     page: page.toString(),
     sort_by: sortBy || "popularity.desc",
   });
@@ -58,15 +58,15 @@ export const getMovies = async ({
   // Imprime la URL final para depurar
   console.log(
     "Constructed URL:",
-    `${baseUrl}/discover/movie?${queryParams.toString()}`
+    `https://api.themoviedb.org/3/discover/movie?${queryParams.toString()}`
   );
 
   // Solicitud a la API
   const response = await fetch(
-    `${baseUrl}/discover/movie?${queryParams.toString()}`,
+    `https://api.themoviedb.org/3/discover/movie?${queryParams.toString()}`,
     {
       headers: {
-        Authorization: `Bearer ${apiKey}`,
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
     }
@@ -82,7 +82,7 @@ export const getMovies = async ({
   const movies = data.results.map((movie: ApiMovie) =>
     formatMovie(movie, genreMap)
   );
-
+console.log("movies",movies)
   const returnMovies = {
     metaData: {
       pagination: {

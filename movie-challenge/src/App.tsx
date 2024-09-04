@@ -2,8 +2,6 @@ import   './styles/styles.css'
 import './styles/detailsStyles.css'
 import Home from '../src/components/Home'
 
-// import Landing from './views/Landing';
-// import About from './views/About.jsx';
 import { Route, Routes } from "react-router-dom"
 import { MovieDetails } from './components/MovieDetails';
  

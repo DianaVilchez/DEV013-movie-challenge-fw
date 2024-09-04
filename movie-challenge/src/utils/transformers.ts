@@ -4,11 +4,11 @@ import {GenreOption} from '../models/GenresOptions';
 
 export function formatMovie(apiData: ApiMovie,genreMap:Map<number, string>) :ApiMovie {
     const genresNames = apiData.genre_ids.map(id => genreMap.get(id) || 'Unknown') ;
-    
+    const date = apiData.release_date ? apiData.release_date :' Sin fecha';
     return {
         title: apiData.title,
         poster_path: apiData.poster_path,
-        release_date:new Date(apiData.release_date).getFullYear().toString(),
+        release_date:new Date(date).getFullYear().toString(),
         genres: genresNames,
         genre_ids:apiData.genre_ids,
         id: apiData.id,
