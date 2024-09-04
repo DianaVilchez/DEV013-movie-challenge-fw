@@ -676,6 +676,10 @@ Si usas Angular o React, tienes la obligación de usar [TypeScript](https://www.
 _Typescript_ es un lenguaje de programación fuertemente tipado basado en
 javascript.
 
+Si usas Angular, **te recomendamos usar la versión 14**. Para esto es necesario que tengas instalada
+la version 12 de NodeJS. Puedes encontrar una guia de instalación [acá](https://github.com/Laboratoria/frontend-technologies-simple-example/tree/main/angular-example)
+o consultar con tus coaches.
+
 La aplicación debe hacer uso de `npm-scripts` y contar con scripts `start`,
 `test`, `build` y `deploy`, que se encarguen de arrancar, correr las pruebas,
 empaquetar y desplegar la aplicación respectivamente.
@@ -696,64 +700,73 @@ hasta hoy.
 
 ---
 
-#### [Historia de usuario 1] Listado de películas
+#### [Historia técnica 1] Configuración del proyecto
 
-Yo como usuaria quiero visualizar en un tabla (filas y columnas) el catálogo de películas
-
-##### Criterios de aceptación
-
-- Se debe usar el _endpoint_ [/discover/movie](https://developer.themoviedb.org/reference/discover-movie).
-- La aplicación cuenta con una paginación para explorar el catálogo por páginas.
-- Para cada película se debe mostrar como mínimo:
-poster, título original y año de lanzamiento.
+Al iniciar un proyecto siempre hay una serie de tareas a las que debemos dedicar tiempo.
 
 ##### Definición de terminado
 
-- Los componentes desarrollados deben contar con test unitarios.
+- [ ] Es posible ejecutar el proyecto y que nuestro navegador muestre la aplicación por defecto.
+
+- [ ] Es posible ejecutar el linter y los tests unitarios.
+
+- [ ] No es posible hacer un push directo a la rama principal
+
+- [ ] Existe un Figma con los diseños de alta fidelidad
+
+- [ ] La aplicación esta desplegada correctamente y se proporciona una URL pública.
 
 ---
 
-#### [Historia de usuario 2] Filtro y ordenamiento
+#### [Historia de usuario 2] Lista de películas
 
-Yo como usuaria quiero filtrar y ordenar el catálogo de películas usando
-los criterios soportados por _TheMovie Database API V3_
-
-##### Criterios de aceptación
-
-- Para filtrar se debe usar el _endpoint_
-[/discover/movie](https://developer.themoviedb.org/reference/discover-movie),
-y alguno de sus parámetros como por ejemplo _with_genres_.
-- Para ordenar se debe usar el _endpoint_
-[/discover/movie](https://developer.themoviedb.org/reference/discover-movie),
-y alguno de sus parámetros como por ejemplo _sort_by_.
-- La paginación debe conservar el filtro y ordenamiento
-- Para cada película se debe mostrar como mínimo:
-poster, título original y año de lanzamiento.
+Como usuario, quiero visualizar el catálogo de películas en filas y columnas.
 
 ##### Definición de terminado
 
-- Los componentes desarrollados deben contar con test unitarios.
+- [ ] Al visitar la aplicación desplegada debe visualizar en una tabla (filas y columnas) el catálogo de películas de [_The Movie Database API V3_](https://developer.themoviedb.org/docs)
 
 ---
 
-#### [Historia de usuario 3] Detalle de una película
+#### [Historia de usuario 3] Lista de películas paginadas
 
-Yo como usuaria quiero consultar los detalles de una película
-
-##### Criterios de aceptación
-
-- Se debe usar el _endpoint_
-[/movie/{movie_id}](https://developer.themoviedb.org/reference/movie-details).
-- Para la película se debe mostrar como mínimo: poster, título original,
-año de lanzamiento, géneros, promedio de votación y total de votos.
-- La interfaz debe permitir retornar al listado de películas conservando
-el filtro y ordenamiento.
+Como usuario, quiero navegar por el catálogo de las películas dividido en páginas.
 
 ##### Definición de terminado
 
-- Los componentes desarrollados deben contar con test unitarios.
+- [ ] Al visitar nuestra aplicación desplegada debe visualizar el catálogo de películas y navegar entre páginas.
 
 ---
+
+#### [Historia de usuario 4] Filtrar y ordenar
+
+Como usuario, quiero poder filtrar las películas por género y ordenarlas por año en orden ascendente y descendente.
+
+##### Definición de terminado
+
+- [ ] El usuario debe poder filtrar el catálogo por género.
+
+- [ ] El usuario debe poder eliminar el filtro para ver películas sin filtrar
+
+- [ ] El usuario debe poder ordenar de forma ascendente el catálogo por año.
+
+- [ ] El usuario debe poder ordenar el catálogo de forma descendente por año.
+
+- [ ] El usuario debe poder eliminar la clasificación para ver las películas sin ordenar
+
+---
+
+#### [Historia de usuario 5] Detalles de la película
+
+Como usuario, quiero poder ver información detallada sobre una película, para poder tomar decisiones informadas sobre si verla o no.
+
+##### Definición de terminado
+
+- [ ] Los usuarios pueden navegar a la página de detalles de la película desde la lista de películas o cualquier sección relevante.
+
+- [ ] Los detalles de la película se muestran de forma destacada, proporcionando información completa sobre la película seleccionada.
+
+- [ ] Los usuarios pueden volver fácilmente a la página anterior.
 
 ## 7. Despliegue
 

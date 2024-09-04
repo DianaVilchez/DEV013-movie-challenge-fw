@@ -1,0 +1,77 @@
+/* MultiSelectDropdown.module.css */
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdownTitle {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #000000;
+    color:rgb(255, 255, 255);
+    /* border: 1px solid #ccc; */
+    /* border-radius: 4px; */
+    width: 200px; /* Puedes ajustar el ancho según sea necesario */
+    font-family: "Mansalva";
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+  }
+  .dropdownTitle:hover {
+    background-color: #8a8585; /* Cambia el color de fondo en hover */
+}
+  
+  .dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #FAFFD7;
+    min-width: 200px; /* Ajusta según sea necesario */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px;
+    font-family: "Bubblegum Sans";
+    font-weight: lighter;
+    font-size: 18px;
+    border-radius:0px 0 20px 20px ;
+  }
+  
+  .dropdownContent.show {
+    display: block;
+    background-color: #FAFFD7;
+  }
+  
+  .optionList {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 300px; /* Ajusta según sea necesario */
+    overflow-y: auto;
+    
+    /* color: black;
+    background-color: #FAFFD7; */
+  }
+  
+  .option {
+    flex: 1 0 45%; /* Esto asegura que haya dos columnas */
+    padding: 8px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-color: #9f9d9d;
+    border-style:dashed;
+    border-width: 0.02px;
+    /* color:black;
+    background-color: #FAFFD7; */
+  }
+  button{
+    margin-top: 4%;
+    background-color: rgb(226, 144, 247);
+    font-size: 18px;
+    padding:4px 20px;
+    font-family: 'Bubblegum Sans';
+    border-radius: 20px;
+  }
+  
+  /* .option:hover {
+    background-color: #d25cea;
+  } */
