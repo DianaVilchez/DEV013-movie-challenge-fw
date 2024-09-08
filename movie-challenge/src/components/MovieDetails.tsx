@@ -21,7 +21,6 @@ export const MovieDetails = () => {
       try {
         if (id !== undefined) {
           const movieid = parseInt(id, 10);
-          console.log("movieid", movieid);
           const getDetails = await getMovieDetail(movieid);
           console.log("getDetails.Movie", getDetails);
 

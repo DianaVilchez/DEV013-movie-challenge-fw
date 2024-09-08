@@ -26,6 +26,7 @@ describe("MovieList", () => {
   test("renders a list of movies", () => {
 
     render(
+      //se usa si uno de los componentes(o hijos) tiene useNavigate(), useParams(), o <Link />.
         <BrowserRouter>
           <MovieList movies={movies} />
         </BrowserRouter>

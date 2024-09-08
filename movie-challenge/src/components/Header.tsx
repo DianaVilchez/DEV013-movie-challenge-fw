@@ -54,7 +54,7 @@ const Header: FC<HeaderProps> = ({
                 selectedOptions={selectedOptions}
                 onChange={onDropdownChange}
                 onClear={onDropdownClear}
-                title="Géneros"
+                title="Genres"
               />
             </li>
             <li>
@@ -74,7 +74,7 @@ const Header: FC<HeaderProps> = ({
                 selectedOptions={selectedVote}
                 onChange={onVoteChange}
                 onClear={onVoteClear}
-                title="Valoración"
+                title="Vote"
               />
             </li>
           </ul>

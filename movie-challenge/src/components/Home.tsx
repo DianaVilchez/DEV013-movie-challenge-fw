@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { ApiMovie } from "../models/ApiMovie";
-import { getMovies } from "../services/APIService"; // Asegúrate de importar la función correcta
+import { getMovies } from "../services/APIService"; 
 import MovieList from "./MovieList";
 import Pagination from "./Pagination";
 import Header from "./Header";
 import { getMovieGenres } from "../services/movieGenresService";
 import Footer from "./Footer";
-// import { useLocation, useNavigate } from 'react-router-dom';
 import { yearFilter } from "../services/yearFilter";
 import { yearOptions } from "./Years";
 import { voteOptions } from "./optionVote";
@@ -18,14 +17,12 @@ function Home() {
   const [data, setData] = useState<ApiMovie[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
-  // const [genreIds, setGenreId] = useState<number | null>(null);
   const [sortBy, setSortBy] = useState<string | null>(null);
   const [selectedYear, setSelectedYear] = useState<Option[]>([]);
   const [options, setOptions] = useState<Option[]>([]);
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
   const [year, setYear] = useState<string | null>(null);
-  // const [selectedMovie,setSelectedMovie] = useState<string>();
-  // const navigate = useNavigate();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -45,7 +42,7 @@ function Home() {
       }
     };
     fetchData();
-  }, [currentPage, selectedGenres, sortBy, year]); // Ejecutar useEffect solo una vez al montar el componente
+  }, [currentPage, selectedGenres, sortBy, year]); 
 
   //FILTRO DE GENEROS
   useEffect(() => {
@@ -70,13 +67,7 @@ function Home() {
 
   const handlePageChange = (page: number) => {
     console.log("actual", page);
-    // const queryParams = new URLSearchParams();
-    //   if (page > 1) {
-    //     queryParams.append("page",page.toString());
-    //     console.log(queryParams)
-    //     window.history.replaceState(null, "", `?${queryParams.toString()}`);
-    //   }
-      
+ 
     setCurrentPage(page);
     // para que el scroll comience en 0
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -139,9 +130,7 @@ function Home() {
     if (sortBy) {
       queryParams.set("sortBy", sortBy);
     } 
-    // if (currentPage > 1) {
-    //     queryParams.append("page", currentPage.toString());
-    //   }
+
     console.log(selectedGenres.join(","));
     const queryString = queryParams.toString();
     window.history.replaceState(null, "", `?${queryString}`); // Actualiza la URL sin recargar la página
