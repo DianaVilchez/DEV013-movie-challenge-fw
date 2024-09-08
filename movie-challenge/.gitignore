@@ -23,11 +23,4 @@ dist-ssr
 *.sw?
 .env
 coverage/
-#test
-src/tests/ApiServices.spec.ts
-src/tests/appexample.tsx
-src/tests/movieCard.test.tsx
-src/tests/MovieDetails.tsx
-src/tests/MovieList.test.tsx
-src/utils/config.ts
 
