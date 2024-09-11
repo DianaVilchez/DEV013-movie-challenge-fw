@@ -6,9 +6,10 @@ import Pagination from "./Pagination";
 import Header from "./Header";
 import { getMovieGenres } from "../services/movieGenresService";
 import Footer from "./Footer";
-import { yearFilter } from "../services/yearFilter";
+import { yearFilter } from "./yearFilter";
 import { yearOptions } from "./Years";
 import { voteOptions } from "./optionVote";
+
 
 type Option = { value: string; label: string };
 

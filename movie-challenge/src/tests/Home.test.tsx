@@ -1,5 +1,5 @@
 
-import { render, screen, waitFor } from "@testing-library/react";
+import {render, screen, waitFor } from "@testing-library/react";
 import Home from "../components/Home";
 import { getMovies } from "../services/APIService";
 import { getMovieGenres } from "../services/movieGenresService";
