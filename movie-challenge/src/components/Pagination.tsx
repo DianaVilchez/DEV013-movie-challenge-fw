@@ -69,6 +69,7 @@ const displayedPages = generatePageNumbers();
   return (
     <nav className="pagination">
       <a
+        aria-label="Previous Page"
         className={`previous-page-${currentPage === 1 ? "is-disabled" : ""}`}
         onClick={onPreviusPage}
       >
@@ -92,6 +93,7 @@ const displayedPages = generatePageNumbers();
         ))}
       </ul>
       <a
+      aria-label="Next Page"
         className={`next-page-${
           currentPage >= displayedPages.length ? "is-disabled" : ""
         }`}

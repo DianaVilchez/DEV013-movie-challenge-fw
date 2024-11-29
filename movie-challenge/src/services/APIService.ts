@@ -1,12 +1,10 @@
-// // export default getMovies()
 import { ApiMovie } from "../models/ApiMovie";
 import { formatGenresToMap, formatMovie } from "../utils/transformers";
-import { yearFilter } from "./yearFilter";
+import { yearFilter } from "../components/yearFilter";
 import { getMovieGenres } from "./movieGenresService";
-const token = import.meta.env.VITE_TOKEN_API!;
-// const apiKey = import.meta.env.VITE_API_KEY!;
-// const baseUrl = import.meta.env.VITE_BASE_URL!;
-
+import { getToken } from "../utils/env";
+// const token = import.meta.env.VITE_TOKEN_API!;
+const token = getToken();
 
 export const getMovies = async ({
   filters: { page = 1, genreIds = [], sortBy ,year},
@@ -28,7 +26,7 @@ export const getMovies = async ({
   // Construcción de los parámetros de consulta
   const queryParams = new URLSearchParams({
     page: page.toString(),
-    sort_by: sortBy || "popularity.desc",
+    // sort_by: sortBy || "popularity.desc",
   });
 
   // Agregar los géneros seleccionados a los parámetros de consulta
@@ -36,7 +34,7 @@ export const getMovies = async ({
     if (genreIds.length > 0) {
       queryParams.set("with_genres", genreIds.join(","));
     } else {
-      queryParams.set("with_genres", "16"); // Valor predeterminado si no hay géneros seleccionados
+      queryParams.set("with_genres", "16"); 
     }
   }
   

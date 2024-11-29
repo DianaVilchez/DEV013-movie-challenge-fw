@@ -29,14 +29,6 @@ export const getMovieGenres = async (): Promise<
       name: genre.name,
     })
   );
-//   const genresPage = totalGenres.filter(
-//     (genre: { id: number; name: string }) => genre.name !== "Animation"
-//   );
-//   console.log("example:", genresPage);
+
   return totalGenres;
 };
-
-// export const getGenresAnimation = async() => {
-//   const getMovieGenres = await getMovies({ filters: { page,genreId,sortBy} })
-//   const genresMovieAnimated = getMovieGenres.filter(genre => genre.id === 16)
-// }

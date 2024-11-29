@@ -1,0 +1,1 @@
+export const TOKEN_API = import.meta.env.VITE_TOKEN_API;
