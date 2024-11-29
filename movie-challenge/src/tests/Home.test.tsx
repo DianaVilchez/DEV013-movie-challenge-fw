@@ -97,4 +97,29 @@ describe("Home Component", () => {
     expect(screen.getByText('Genres')).toBeInTheDocument();
     expect(screen.getByText('Vote')).toBeInTheDocument();
   })
+  // test('handles genre selection', async () => {
+  //   render(
+  //     <BrowserRouter>
+  //       <Home />
+  //     </BrowserRouter>
+  //   );
+
+  //   // Espera que los géneros se carguen
+  //   await waitFor(() => expect(getMovieGenres).toHaveBeenCalled());
+
+  //   // Simula la selección de un género
+  //   // const genreOption = screen.getByText('Action');
+  //   console.log(screen.getByText('Action'))
+  //   fireEvent.click(screen.getByText('Action'));
+
+
+  //   // Verifica que el estado se actualiza correctamente y la llamada a getMovies incluye los géneros
+  //   await waitFor(() =>
+  //     expect(getMovies).toHaveBeenCalledWith(
+  //       expect.objectContaining({
+  //         filters: { genreIds: ['28'], page: 1, sortBy: null, year: null },
+  //       })
+  //     )
+  //   );
+  // });
 })
